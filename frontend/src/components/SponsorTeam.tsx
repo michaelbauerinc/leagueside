@@ -8,15 +8,20 @@ import { useState } from "react";
 export const SponsorTeam: React.FC = () => {
   const service = HttpService;
   const [success, setSuccess] = useState<boolean>(false);
+  const [matchFail, setMatchFail] = useState<boolean>(false);
+
   const { register, handleSubmit, errors } = useForm();
   const [responseData, setResponseData] = useState([{ name: "", latitude: "", longitude: "", price: "" }]);
   const querySponsors = (data: Record<string, string>) =>
     service.get("/api/v1/league", data).then((response: AxiosResponse) => {
       console.log(data);
       if (response.status === 200) {
-        console.log(response.data);
-        setSuccess(true);
-        setResponseData(response.data);
+        if (response.data.length > 0) {
+          setSuccess(true);
+          setResponseData(response.data);
+        } else {
+          setMatchFail(true);
+        }
       } else {
         // TODO: error handling
         // console.log(response.message)
@@ -25,7 +30,7 @@ export const SponsorTeam: React.FC = () => {
   return (
     <div>
       <h1>Sponsor a Team</h1>
-      {!success && (
+      {!success && !matchFail && (
         <form onSubmit={handleSubmit(querySponsors)}>
           <div className="form-group">
             <label htmlFor="radius">Radius</label>
@@ -66,6 +71,14 @@ export const SponsorTeam: React.FC = () => {
               <button className="btn btn-primary mt-4">Sponsor Team</button>
             </div>
           ))}
+        </div>
+      )}
+      {matchFail && (
+        <div>
+          <p className="alert-danger">
+            Hmmmm, looks like there's no matches within your specifications. Consider increasing your budget or search
+            radius!
+          </p>
         </div>
       )}
     </div>
