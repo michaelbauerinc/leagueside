@@ -24,19 +24,13 @@ This will bring up the API on port 3000 and the frontend on port 3001. After the
 cd api
 ```
 
-3. Create an sqlite db:
-
-```bash
-touch ./db/development.sqlite3
-```
-
-4. Prepare the db:
+3. Prepare the db:
 
 ```bash
 rails db:setup && rails db:migrate
 ```
 
-5. Start the API:
+4. Start the API:
 
 ```bash
 rails s -b 0.0.0.0
