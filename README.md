@@ -46,7 +46,13 @@ rails s -b 0.0.0.0
 cd frontend
 ```
 
-3. Start the frontend:
+3. Install dependencies:
+
+```bash
+npm install
+```
+
+4. Start the frontend:
 
 ```bash
 npm start
