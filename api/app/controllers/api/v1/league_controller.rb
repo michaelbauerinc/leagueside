@@ -5,14 +5,14 @@ class Api::V1::LeagueController < ApplicationController
         radius = params[:radius]
         latitude = params[:latitude]
         longitude = params[:longitude]
-        budget = params[:budget]
+        budget = params[:budget].to_i
         
         matches = []
         @leagues = League.all.sort_by { |league| league['price'].to_i }
 
         @leagues.each do |league|
             distance_between = Geocoder::Calculations.distance_between([latitude,longitude], [league.latitude,league.longitude])
-            if distance_between <= radius.to_f
+            if distance_between <= radius.to_i
                 if budget - league.price > 0
                     matches.push(league)
                     budget-=league.price

@@ -1,0 +1,33 @@
+.panel {
+  text-align: center;
+  padding: 5% 0;
+  margin: 0 auto;
+  width: 50%;
+  height: 100%;
+}
+
+.panel img {
+  padding: 5% 0;
+  width: 100%;
+}
+
+.panel .home {
+  margin-left: -12%;
+}
+
+.selections {
+  padding: 5% 0;
+}
+
+.selections button {
+  margin: 5% 0;
+}
+
+@media (max-width: 824px) {
+  .panel {
+    width: 80%;
+  }
+  .panel .home {
+    margin: 5% 0;
+  }
+}
