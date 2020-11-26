@@ -3,14 +3,19 @@ import "./RegisterTeam.css";
 import { useForm } from "react-hook-form";
 import { HttpService } from "../services/HttpService";
 import { AxiosResponse } from "axios";
+import { useState } from "react";
 
 export const RegisterTeam: React.FC = () => {
   const service = HttpService;
   const { register, handleSubmit, errors } = useForm();
+  const [success, setSuccess] = useState<boolean>(false);
   const registerTeam = (data: Record<string, string>) =>
     service.post("/api/v1/league", data).then((response: AxiosResponse) => {
       console.log(data);
       if (response.status === 200) {
+        setSuccess(true);
+        let form: any = document.getElementById("register-form");
+        if (form) form.reset();
       } else {
         // TODO: error handling
         // console.log(response.message)
@@ -19,7 +24,8 @@ export const RegisterTeam: React.FC = () => {
   return (
     <div>
       <h1>Register Team</h1>
-      <form onSubmit={handleSubmit(registerTeam)}>
+      {success && <p className="alert-success">Successfully registered team</p>}
+      <form id="register-form" onSubmit={handleSubmit(registerTeam)}>
         <div className="form-group">
           <label htmlFor="name">Name</label>
           <br />
@@ -41,7 +47,7 @@ export const RegisterTeam: React.FC = () => {
           <input ref={register({ required: true })} className="price" name="price" type="text"></input>
         </div>
         <button className="btn btn-primary" type="submit">
-          Query
+          Register
         </button>
       </form>
     </div>

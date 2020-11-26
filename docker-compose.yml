@@ -1,0 +1,16 @@
+version: "3"
+services:
+  api:
+    build: ./api
+    ports:
+      - "3000:3000"
+    volumes:
+      - /${BACKEND_VOLUME}:/api
+  frontend:
+    stdin_open: true
+    build: ./frontend
+    ports:
+      - "3001:3001"
+    volumes:
+      - /${FRONTEND_VOLUME}:/frontend
+      - /frontend/node_modules

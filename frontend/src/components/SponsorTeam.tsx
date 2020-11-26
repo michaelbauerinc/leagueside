@@ -48,21 +48,22 @@ export const SponsorTeam: React.FC = () => {
             <input ref={register({ required: true })} className="budget" name="budget" type="text"></input>
           </div>
           <button className="btn btn-primary" type="submit">
-            Register
+            Sponsor
           </button>
         </form>
       )}
       {success && (
         <div>
-          <p>Success! The following teams fit within your budget and location request.</p>
+          <p className="alert-success">Success! The following teams fit within your budget and location request.</p>
           {responseData.map((item) => (
             <div className="panel panel-default">
-              <h2>
-                <span>Team:</span> {item.name}
-              </h2>
-              <h2>
+              <h3>
+                <span>Team Name:</span> {item.name}
+              </h3>
+              <h3>
                 <span>Requested Sponsorship:</span> {item.price}
-              </h2>
+              </h3>
+              <button className="btn btn-primary mt-4">Sponsor Team</button>
             </div>
           ))}
         </div>
