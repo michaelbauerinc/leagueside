@@ -24,13 +24,19 @@ This will bring up the API on port 3000 and the frontend on port 3001. After the
 cd api
 ```
 
-3. Prepare the db:
+3. Install dependencies:
+
+```bash
+bundle install
+```
+
+4. Prepare the db:
 
 ```bash
 rails db:setup && rails db:migrate
 ```
 
-4. Start the API:
+5. Start the API:
 
 ```bash
 rails s -b 0.0.0.0
