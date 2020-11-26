@@ -33,7 +33,7 @@ export const SponsorTeam: React.FC = () => {
       {!success && !matchFail && (
         <form onSubmit={handleSubmit(querySponsors)}>
           <div className="form-group">
-            <label htmlFor="radius">Radius</label>
+            <label htmlFor="radius">Search Radius (miles)</label>
             <br />
             <input ref={register({ required: true })} className="radius" name="radius" type="text"></input>
           </div>
