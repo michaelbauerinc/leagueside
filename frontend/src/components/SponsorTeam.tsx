@@ -29,7 +29,7 @@ export const SponsorTeam: React.FC = () => {
     });
   return (
     <div>
-      <h1>Sponsor a Team</h1>
+      <h1>Sponsor a League</h1>
       {!success && !matchFail && (
         <form onSubmit={handleSubmit(querySponsors)}>
           <div className="form-group">
@@ -59,7 +59,7 @@ export const SponsorTeam: React.FC = () => {
       )}
       {success && (
         <div>
-          <p className="alert-success">Success! The following teams fit within your budget and location request.</p>
+          <p className="alert-success">Success! The following leagues fit within your budget and location request.</p>
           {responseData.map((item) => (
             <div className="panel panel-default">
               <h3>

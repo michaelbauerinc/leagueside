@@ -45,7 +45,7 @@ class Home extends React.Component<Props, State> {
                   this.setState({ currentComponent: "sponsor" });
                 }}
               >
-                Sponsor a team
+                Sponsor a league
               </button>
             </div>
           </div>

@@ -23,8 +23,8 @@ export const RegisterTeam: React.FC = () => {
     });
   return (
     <div>
-      <h1>Register Team</h1>
-      {success && <p className="alert-success">Successfully registered team</p>}
+      <h1>Register League</h1>
+      {success && <p className="alert-success">Successfully registered league</p>}
       <form id="register-form" onSubmit={handleSubmit(registerTeam)}>
         <div className="form-group">
           <label htmlFor="name">Name</label>
