@@ -57,3 +57,7 @@ cd frontend
 ```bash
 npm start
 ```
+
+### Additional Info
+
+Insert jawn here
